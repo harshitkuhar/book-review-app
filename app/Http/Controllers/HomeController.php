@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Book;
+use App\Models\Review;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    // It will display homepage with all Books
+    public function allBooks(){
+        $books = Book::paginate(4);
+        return view('home.books', compact('books'));
+    }
+
+    // It will display book detail page
+    public function bookDetailPage($id){
+        $book = Book::findOrFail($id);
+        $relatedBooks = Book::whereNot('id', [$id])->take(3)->get();
+
+        $reviews = Review::with('books', 'users')->whereIn('book_id' ,[$id])->get();
+        // $books = Book::with('reviews.users')->findOrFail($id);
+
+        // foreach($books as $book){
+        //    return $book;
+        // }
+
+        //return $reviews;
+
+        return view('home.singlebook', ['book' => $book, 'relatedBooks' => $relatedBooks, 'reviews' => $reviews]);
+    }
+
+}
