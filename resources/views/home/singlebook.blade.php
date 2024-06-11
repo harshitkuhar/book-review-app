@@ -19,28 +19,26 @@
                     <h3 class="h2 mb-3">{{$book->title}}</h3>
                     <div class="h4 text-muted">{{$book->author}}</div>
                     <div class="star-rating d-inline-flex ml-2" title="">
-                        @foreach ($reviews as $review)
-                            <span class="rating-text theme-font theme-yellow">{{$review->rating}}</span>
-                        @endforeach
-                        <div class="star-rating d-inline-flex ms-1 me-2" title="">
-                            <div class="back-stars ">
-                                <i class="fa fa-star " aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
+                                    <span class="rating-text theme-font theme-yellow">{{$final_rating}}</span>
+                            <div class="star-rating d-inline-flex ms-1 me-2" title="">
+                                <div class="back-stars ">
+                                    <i class="fa fa-star " aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
 
-                                <div class="front-stars" style="width: 100%">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <div class="front-stars" style="width: {{$final_rating * 20}}%">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
                                 </div>
                             </div>
+                            <span class="theme-font text-muted">(0 Review)</span>
                         </div>
-                        <span class="theme-font text-muted">(0 Review)</span>
-                    </div>
 
                     <div class="content mt-3">
                         <p>
