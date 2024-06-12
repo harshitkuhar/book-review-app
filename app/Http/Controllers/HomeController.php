@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     // It will display homepage with all Books
     public function allBooks(){
-        $books = Book::paginate(4);
+        $books = Book::paginate(6);
         return view('home.books', compact('books'));
     }
 
