@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $books = Book::where('title', 'LIKE', '%'.$request->keyword.'%')->paginate(5);
